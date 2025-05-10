@@ -5,9 +5,9 @@ declare(strict_types=1);
  * CakePHP(tm) : Rapid Development Framework (https://cakephp.org)
  * Copyright (c) Cake Software Foundation, Inc. (https://cakefoundation.org)
  *
- * Licensed under The MIT License
- * For full copyright and license information, please see the LICENSE.txt
- * Redistributions of files must retain the above copyright notice.
+ * MIT 라이선스 하에 제공됩니다.
+ * 전체 저작권 및 라이선스 정보는 LICENSE.txt 파일에서 확인할 수 있습니다.
+ * 파일을 재배포할 경우 저작권 표시를 유지해야 합니다.
  *
  * @copyright Copyright (c) Cake Software Foundation, Inc. (https://cakefoundation.org)
  * @link      https://cakephp.org CakePHP(tm) Project
@@ -24,8 +24,7 @@ use Migrations\TestSuite\Migrator;
 /**
  * Test runner bootstrap.
  *
- * Add additional configuration/setup your application needs when running
- * unit tests in this file.
+ * 애플리케이션에서 단위 테스트를 실행할 때 필요한 추가적인 설정을 정의합니다.
  */
 require dirname(__DIR__) . '/vendor/autoload.php';
 
@@ -35,9 +34,9 @@ if (empty($_SERVER['HTTP_HOST']) && !Configure::read('App.fullBaseUrl')) {
     Configure::write('App.fullBaseUrl', 'http://localhost');
 }
 
-// DebugKit skips settings these connection config if PHP SAPI is CLI / PHPDBG.
-// But since PagesControllerTest is run with debug enabled and DebugKit is loaded
-// in application, without setting up these config DebugKit errors out.
+// DebugKit은 CLI / PHPDBG 환경에서 연결 설정을 건너뜹니다.
+// 하지만 PagesControllerTest는 디버그 모드에서 실행되며 DebugKit이 로드되므로,
+// 설정되지 않으면 DebugKit에서 오류가 발생할 수 있습니다.
 ConnectionManager::setConfig('test_debug_kit', [
     'className' => 'Cake\Database\Connection',
     'driver' => 'Cake\Database\Driver\Sqlite',
@@ -49,26 +48,24 @@ ConnectionManager::setConfig('test_debug_kit', [
 
 ConnectionManager::alias('test_debug_kit', 'debug_kit');
 
-// Fixate now to avoid one-second-leap-issues
+// 1초 차이로 인한 문제를 방지하기 위해 현재 시간을 고정합니다.
 Chronos::setTestNow(Chronos::now());
 
-// Fixate sessionid early on, as php7.2+
-// does not allow the sessionid to be set after stdout
-// has been written to.
+// PHP 7.2 이상에서는 stdout이 출력된 후에는
+// session ID를 설정할 수 없으므로 미리 고정합니다
 session_id('cli');
 
-// Connection aliasing needs to happen before migrations are run.
-// Otherwise, table objects inside migrations would use the default datasource
+// 마이그레이션 실행 전에 연결 별칭을 설정해야 합니다.
+// 그렇지 않으면 마이그레이션 내 테이블 객체가 기본 데이터 소스를 사용하게 됩니다.
 ConnectionHelper::addTestAliases();
 
-// Use migrations to build test database schema.
+// 마이그레이션을 사용하여 테스트 데이터베이스 스키마를 구축합니다.
 //
-// Will rebuild the database if the migration state differs
-// from the migration history in files.
+// 파일 내 마이그레이션 기록과 상태가 다를 경우 데이터베이스를 다시 구축합니다.
 //
-// If you are not using CakePHP's migrations you can
-// hook into your migration tool of choice here or
-// load schema from a SQL dump file with
+// CakePHP의 마이그레이션을 사용하지 않는다면,
+// 원하는 마이그레이션 도구를 여기서 호출하거나
+// SQL 덤프 파일을 로드할 수도 있습니다.
 // use Cake\TestSuite\Fixture\SchemaLoader;
 // (new SchemaLoader())->loadSqlFiles('./tests/schema.sql', 'test');
 

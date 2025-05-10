@@ -1,4 +1,4 @@
-# CakePHP specific files #
+# CakePHP 관련 파일 #
 ##########################
 /config/app_local.php
 /config/.env
@@ -6,20 +6,21 @@
 /tmp/*
 /vendor/*
 
-# OS generated files #
+# 운영체제에서 생성하는 파일 #
 ######################
 .DS_Store
 .DS_Store?
-._*
+._* 
 .Spotlight-V100
 .Trashes
-# Icon must end with two \r
-Icon
+# 아이콘 파일은 두 개의 \r로 끝나야 합니다.
+Icon
+
 ehthumbs.db
 Thumbs.db
 .directory
 
-# Tool specific files #
+# 개발 도구별 파일 #
 #######################
 # PHPUnit
 .phpunit.cache

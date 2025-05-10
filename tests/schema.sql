@@ -1,4 +1,4 @@
--- Test database schema.
+-- 테스트용 데이터베이스 스키마.
 --
--- If you are not using CakePHP migrations you can put
--- your application's schema in this file and use it in tests.
+-- CakePHP 마이그레이션을 사용하지 않는 경우,
+-- 이 파일에 애플리케이션의 스키마를 정의하여 테스트에 활용할 수 있습니다.

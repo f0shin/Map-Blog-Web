@@ -5,8 +5,8 @@ declare(strict_types=1);
  * CakePHP(tm) : Rapid Development Framework (https://cakephp.org)
  * Copyright (c) Cake Software Foundation, Inc. (https://cakefoundation.org)
  *
- * Licensed under The MIT License
- * Redistributions of files must retain the above copyright notice.
+ * MIT 라이선스 하에 제공됩니다.
+ * 파일을 재배포할 경우 저작권 표시를 유지해야 합니다.
  *
  * @copyright Copyright (c) Cake Software Foundation, Inc. (https://cakefoundation.org)
  * @link      https://cakephp.org CakePHP(tm) Project
@@ -20,7 +20,7 @@ use Cake\View\View;
 /**
  * Application View
  *
- * Your application's default view class
+ * 애플리케이션의 기본 뷰 클래스입니다.
  *
  * @link https://book.cakephp.org/5/en/views.html#the-app-view
  */
@@ -29,9 +29,9 @@ class AppView extends View
     /**
      * Initialization hook method.
      *
-     * Use this method to add common initialization code like adding helpers.
+     * 공통적인 초기화 코드(예: 헬퍼 추가)를 설정하는 데 사용됩니다.
      *
-     * e.g. `$this->addHelper('Html');`
+     * 예: `$this->addHelper('Html');`
      *
      * @return void
      */

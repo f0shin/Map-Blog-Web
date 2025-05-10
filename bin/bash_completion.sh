@@ -1,8 +1,10 @@
 #
-# Bash completion file for CakePHP console.
-# Copy this file to a file named `cake` under `/etc/bash_completion.d/`.
-# For more info check https://book.cakephp.org/5/en/console-commands/completion.html#how-to-enable-bash-autocompletion-for-the-cakephp-console
+# CakePHP 콘솔을 위한 Bash 자동 완성 파일.
+# 이 파일을 `/etc/bash_completion.d/` 디렉토리 아래 `cake`라는 이름으로 복사하세요.
+# 자세한 설정 방법은 아래 링크에서 확인할 수 있습니다:
+# https://book.cakephp.org/5/en/console-commands/completion.html#how-to-enable-bash-autocompletion-for-the-cakephp-console
 #
+
 
 _cake()
 {

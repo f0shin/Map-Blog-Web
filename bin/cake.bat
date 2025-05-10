@@ -1,12 +1,12 @@
 ::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
 ::
-:: Cake is a Windows batch script for invoking CakePHP shell commands
+:: Cake은 CakePHP 셸 명령을 실행하는 Windows 배치 스크립트입니다.
 ::
 :: CakePHP(tm) : Rapid Development Framework (https://cakephp.org)
 :: Copyright (c) Cake Software Foundation, Inc. (https://cakefoundation.org)
 ::
-:: Licensed under The MIT License
-:: Redistributions of files must retain the above copyright notice.
+:: MIT 라이선스 하에 제공됩니다.
+:: 파일을 재배포할 경우 위 저작권 표시를 유지해야 합니다.
 ::
 :: @copyright     Copyright (c) Cake Software Foundation, Inc. (https://cakefoundation.org)
 :: @link          https://cakephp.org CakePHP(tm) Project

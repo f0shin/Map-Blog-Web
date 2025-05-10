@@ -29,7 +29,7 @@ if (Configure::read('debug')) :
     $this->end();
 endif;
 ?>
-<h2><?= __d('cake', 'An Internal Error Has Occurred.') ?></h2>
+<h2><?= __d('cake', '내부 오류가 발생했습니다.빠르게 처리해보겠습니다.😗') ?></h2>
 <p class="error">
     <strong><?= __d('cake', 'Error') ?>: </strong>
     <?= h($message) ?>

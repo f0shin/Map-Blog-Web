@@ -5,9 +5,9 @@ declare(strict_types=1);
  * CakePHP(tm) : Rapid Development Framework (https://cakephp.org)
  * Copyright (c) Cake Software Foundation, Inc. (https://cakefoundation.org)
  *
- * Licensed under The MIT License
- * For full copyright and license information, please see the LICENSE.txt
- * Redistributions of files must retain the above copyright notice.
+ * MIT 라이선스 하에 제공됩니다.
+ * 전체 라이선스 내용은 LICENSE.txt 파일에서 확인할 수 있으며,
+ * 파일을 재배포할 경우 저작권 표시를 유지해야 합니다.
  *
  * @copyright Copyright (c) Cake Software Foundation, Inc. (https://cakefoundation.org)
  * @link      https://cakephp.org CakePHP(tm) Project
@@ -27,13 +27,14 @@ use Composer\Script\Event;
 use Exception;
 
 /**
- * Provides installation hooks for when this application is installed through
- * composer. Customize this class to suit your needs.
+ * 이 애플리케이션이 composer를 통해 설치될 때 실행되는 설치 후크를 제공합니다.
+ * 필요에 따라 이 클래스를 수정하여 원하는 설정을 적용하세요.
+ * (설치 후크(Installation Hook) : 소프트웨어가 설치될 때 자동으로 실행되는 특별한 코드 또는 스크립트)
  */
 class Installer
 {
     /**
-     * An array of directories to be made writable
+     * 쓰기 가능하도록 설정해야 할 디렉터리의 배열
      *
      * @var list<string>
      */
@@ -49,10 +50,10 @@ class Installer
     ];
 
     /**
-     * Does some routine installation tasks so people don't have to.
+     * 사람(개발자)들이 직접 수행할 필요 없이 몇 가지 기본적인 설치 작업을 자동으로 처리합니다.
      *
-     * @param \Composer\Script\Event $event The composer event object.
-     * @throws \Exception Exception raised by validator.
+     * @param \Composer\Script\Event $event Composer 이벤트 객체
+     * @throws \Exception 검증기(validator)에서 발생한 예외.
      * @return void
      */
     public static function postInstall(Event $event): void

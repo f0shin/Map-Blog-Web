@@ -3,8 +3,9 @@
  * CakePHP(tm) : Rapid Development Framework (https://cakephp.org)
  * Copyright (c) Cake Software Foundation, Inc. (https://cakefoundation.org)
  *
- * Licensed under The MIT License
- * Redistributions of files must retain the above copyright notice.
+ * MIT 라이선스 하에 제공됩니다.
+ * 전체 라이선스 내용은 LICENSE.txt 파일에서 확인할 수 있으며,
+ * 파일을 재배포할 경우 저작권 표시를 유지해야 합니다.
  *
  * @copyright     Copyright (c) Cake Software Foundation, Inc. (https://cakefoundation.org)
  * @link          https://cakephp.org CakePHP(tm) Project
@@ -13,82 +14,84 @@
  */
 
 /*
- * Use the DS to separate the directories in other defines
+ * 다른 define 문에서 디렉토리를 구분할 때 DS를 사용합니다.
+ * (DS : 디렉토리 구분자(Directory Separator))
  */
+
 if (!defined('DS')) {
     define('DS', DIRECTORY_SEPARATOR);
 }
 
 /*
- * These defines should only be edited if you have cake installed in
- * a directory layout other than the way it is distributed.
- * When using custom settings be sure to use the DS and do not add a trailing DS.
+ * CakePHP가 기본적으로 제공하는 디렉토리 구조와 다르게 설치된 경우에만,
+ * 아래 정의 값을 수정하세요. 사용자 지정 설정을 적용할 때는 반드시 DS를 사용하고
+ * 마지막에 DS를 추가하지 마세요.
  */
 
 /*
- * The full path to the directory which holds "src", WITHOUT a trailing DS.
+ * "src" 디렉토리를 포함하는 루트 디렉토리의 전체 경로 (마지막에 DS 없음).
  */
 define('ROOT', dirname(__DIR__));
 
 /*
- * The actual directory name for the application directory. Normally
- * named 'src'.
+ * 애플리케이션 디렉토리의 실제 이름. 기본적으로 'src'입니다.
  */
 define('APP_DIR', 'src');
 
 /*
- * Path to the application's directory.
+ * 애플리케이션 디렉토리의 경로.
  */
 define('APP', ROOT . DS . APP_DIR . DS);
 
 /*
- * Path to the config directory.
+ * 설정 파일이 위치한 디렉토리의 경로.
  */
 define('CONFIG', ROOT . DS . 'config' . DS);
 
 /*
- * File path to the webroot directory.
+ * 웹루트 디렉토리의 파일 경로.
  *
- * To derive your webroot from your webserver change this to:
+ * 웹 서버에서 직접 웹루트를 설정하려면 다음을 사용하세요:
  *
  * `define('WWW_ROOT', rtrim($_SERVER['DOCUMENT_ROOT'], DS) . DS);`
  */
 define('WWW_ROOT', ROOT . DS . 'webroot' . DS);
 
 /*
- * Path to the tests directory.
+ * 테스트 파일이 위치한 디렉토리의 경로.
  */
 define('TESTS', ROOT . DS . 'tests' . DS);
 
 /*
- * Path to the temporary files directory.
+ * 임시 파일이 저장되는 디렉토리의 경로.
  */
 define('TMP', ROOT . DS . 'tmp' . DS);
 
 /*
- * Path to the logs directory.
+ * 로그 파일이 저장되는 디렉토리의 경로.
  */
 define('LOGS', ROOT . DS . 'logs' . DS);
 
 /*
- * Path to the cache files directory. It can be shared between hosts in a multi-server setup.
+ * 캐시 파일이 저장되는 디렉토리의 경로. 
+ * 다중 서버 환경에서 공유할 수도 있습니다.
  */
 define('CACHE', TMP . 'cache' . DS);
 
 /*
- * Path to the resources directory.
+ * 리소스 파일이 위치한 디렉토리의 경로.
  */
 define('RESOURCES', ROOT . DS . 'resources' . DS);
 
 /*
- * The absolute path to the "cake" directory, WITHOUT a trailing DS.
+ * "cake" 디렉토리의 절대 경로 (마지막에 DS 없음).
  *
- * CakePHP should always be installed with composer, so look there.
+ * CakePHP는 항상 composer를 통해 설치되어야 하므로 해당 경로를 확인하세요.
  */
 define('CAKE_CORE_INCLUDE_PATH', ROOT . DS . 'vendor' . DS . 'cakephp' . DS . 'cakephp');
 
 /*
- * Path to the cake directory.
+ * CakePHP 코어 디렉토리의 경로.
  */
 define('CORE_PATH', CAKE_CORE_INCLUDE_PATH . DS);
 define('CAKE', CORE_PATH . 'src' . DS);

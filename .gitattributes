@@ -1,14 +1,14 @@
-# Define the line ending behavior of the different file extensions
-# Set default behavior, in case users don't have core.autocrlf set.
+# 다양한 파일 확장자의 줄 바꿈 방식 정의
+# 사용자가 core.autocrlf 설정을 하지 않은 경우 기본 동작을 설정합니다.
 * text text=auto eol=lf
 
-# Declare files that will always have CRLF line endings on checkout.
+# 체크아웃 시 항상 CRLF 줄 바꿈을 유지할 파일 선언
 *.bat eol=crlf
 
-# Declare files that will always have LF line endings on checkout.
+# 체크아웃 시 항상 LF 줄 바꿈을 유지할 파일 선언
 *.pem eol=lf
 
-# Denote all files that are truly binary and should not be modified.
+# 실제 바이너리 파일이며 수정되지 않아야 하는 파일 지정
 *.png binary
 *.jpg binary
 *.jpeg binary

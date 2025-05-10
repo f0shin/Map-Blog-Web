@@ -1,14 +1,14 @@
 #!/usr/bin/env sh
 ################################################################################
 #
-# Cake is a shell script for invoking CakePHP shell commands
+# CakePHP 셸 명령을 실행하는 스크립트입니다.
 #
-# CakePHP(tm) :  Rapid Development Framework (https://cakephp.org)
+# CakePHP(tm) : Rapid Development Framework (https://cakephp.org)
 # Copyright (c) Cake Software Foundation, Inc. (https://cakefoundation.org)
 #
-# Licensed under The MIT License
-# For full copyright and license information, please see the LICENSE.txt
-# Redistributions of files must retain the above copyright notice.
+# MIT 라이선스 하에 제공됩니다.
+# 전체 저작권 및 라이선스 정보는 LICENSE.txt 파일에서 확인할 수 있습니다.
+# 파일을 재배포할 경우 위 저작권 표시를 유지해야 합니다.
 #
 # @copyright     Copyright (c) Cake Software Foundation, Inc. (https://cakefoundation.org)
 # @link          https://cakephp.org CakePHP(tm) Project
@@ -17,7 +17,7 @@
 #
 ################################################################################
 
-# Canonicalize by following every symlink of the given name recursively
+# 주어진 파일 이름의 모든 심볼릭 링크(symlink)를 재귀적으로 따라가며 실제 경로를 찾음
 canonicalize() {
     NAME="$1"
     if [ -f "$NAME" ]
@@ -33,7 +33,7 @@ canonicalize() {
     echo "$NAME"
 }
 
-# Find a CLI version of PHP
+# CLI 환경에서 사용할 PHP 실행 파일을 찾음
 findCliPhp() {
     for TESTEXEC in php php-cli /usr/local/bin/php
     do
@@ -48,7 +48,7 @@ findCliPhp() {
     echo "php";
 }
 
-# If current path is a symlink, resolve to real path
+# 현재 경로가 심볼릭 링크인 경우 실제 경로를 확인
 realname="$0"
 if [ -L "$realname" ] 
 then
@@ -58,8 +58,8 @@ fi
 CONSOLE=$(dirname -- "$(canonicalize "$realname")")
 APP=$(dirname "$CONSOLE")
 
-# If your CLI PHP is somewhere that this doesn't find, you can define a PHP environment
-# variable with the correct path in it.
+# CLI 환경에서 사용할 PHP 실행 파일 경로를 정의
+# 실행된 파일이 'cake'가 아닐 경우 해당 파일을 CakePHP 셸로 실행
 if [ -z "$PHP" ]
 then
     PHP=$(findCliPhp)

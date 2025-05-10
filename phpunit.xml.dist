@@ -11,20 +11,20 @@
         <ini name="apc.enable_cli" value="1"/>
     </php>
 
-    <!-- Add any additional test suites you want to run here -->
+    <!-- 실행할 추가 테스트 스위트를 여기에 추가하세요 -->
     <testsuites>
         <testsuite name="app">
             <directory>tests/TestCase/</directory>
         </testsuite>
-        <!-- Add plugin test suites here. -->
+        <!-- 여기에서 플러그인 테스트 스위트(plugin Test Suite)를 추가하세요. -->
     </testsuites>
 
-    <!-- Load extension for fixtures -->
+    <!-- 픽스처(fixtures)를 위한 확장 로드 -->
     <extensions>
         <bootstrap class="Cake\TestSuite\Fixture\Extension\PHPUnitExtension"/>
     </extensions>
 
-    <!-- Ignore vendor tests in code coverage reports -->
+    <!-- 코드 커버리지 보고서에서 vendor 테스트 제외 -->
     <source>
         <include>
             <directory suffix=".php">src/</directory>

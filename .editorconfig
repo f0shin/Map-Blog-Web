@@ -1,5 +1,5 @@
-; This file is for unifying the coding style for different editors and IDEs.
-; More information at https://editorconfig.org
+; 이 파일은 다양한 코드 편집기 및 IDE에서 코딩 스타일을 통일하기 위한 설정 파일입니다.
+; 자세한 내용은 https://editorconfig.org에서 확인하세요.
 
 root = true
 

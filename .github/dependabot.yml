@@ -1,11 +1,16 @@
+# GitHub Dependabot을 설정하는 파일
+# GitHub의 자동 의존성 관리 도구로, 프로젝트에서 사용하는 라이브러리나 패키지를 최신 상태로 유지하도록 도와줌!
+
 version: 2
 updates:
-- package-ecosystem: composer
-  directory: "/"
+# Composer 패키지 관리
+- package-ecosystem: composer 
+  directory: "/" # 루트 디렉토리에서 패키지 검색
   schedule:
-    interval: weekly
+    interval: weekly # 매주 업데이트 확인
   open-pull-requests-limit: 10
-- package-ecosystem: github-actions
+# github-actions 패키지 관리
+- package-ecosystem: github-actions 
   directory: "/"
   schedule:
     interval: weekly

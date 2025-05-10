@@ -5,9 +5,9 @@ declare(strict_types=1);
  * CakePHP(tm) : Rapid Development Framework (https://cakephp.org)
  * Copyright (c) Cake Software Foundation, Inc. (https://cakefoundation.org)
  *
- * Licensed under The MIT License
- * For full copyright and license information, please see the LICENSE.txt
- * Redistributions of files must retain the above copyright notice.
+ * MIT 라이선스 하에 제공됩니다.
+ * 전체 라이선스 내용은 LICENSE.txt 파일에서 확인할 수 있으며,
+ * 파일을 재배포할 경우 저작권 표시를 유지해야 합니다.
  *
  * @copyright     Copyright (c) Cake Software Foundation, Inc. (https://cakefoundation.org)
  * @link          https://cakephp.org CakePHP(tm) Project
@@ -16,19 +16,19 @@ declare(strict_types=1);
  */
 
 /*
- * This file is loaded by your src/Application.php bootstrap method.
- * Feel free to extend/extract parts of the bootstrap process into your own files
- * to suit your needs/preferences.
+ * 이 파일은 `src/Application.php`의 부트스트랩 메서드에서 로드됩니다.
+ * 필요에 따라 부트스트랩 과정의 일부를 확장하거나 별도의 파일로 분리하여
+ * 원하는 방식으로 구성할 수 있습니다.
  */
 
 /*
- * Configure paths required to find CakePHP + general filepath constants
+ * CakePHP와 일반적인 파일 경로 상수를 찾기 위해 필요한 경로를 설정합니다.
  */
 require __DIR__ . DIRECTORY_SEPARATOR . 'paths.php';
 
 /*
- * Bootstrap CakePHP
- * Currently all this does is initialize the router (without loading your routes)
+ * CakePHP 부트스트랩을 실행합니다.
+ * 현재 이 과정에서는 라우터를 초기화하지만, 라우트 파일을 로드하지는 않습니다.
  */
 require CORE_PATH . 'config' . DS . 'bootstrap.php';
 
@@ -46,38 +46,17 @@ use Cake\Routing\Router;
 use Cake\Utility\Security;
 
 /*
- * Load global functions for collections, translations, debugging etc.
+ * 컬렉션, 번역, 디버깅 등을 위한 전역 함수를 로드합니다.
  */
 require CAKE . 'functions.php';
 
-/*
- * See https://github.com/josegonzalez/php-dotenv for API details.
- *
- * Uncomment block of code below if you want to use `.env` file during development.
- * You should copy `config/.env.example` to `config/.env` and set/modify the
- * variables as required.
- *
- * The purpose of the .env file is to emulate the presence of the environment
- * variables like they would be present in production.
- *
- * If you use .env files, be careful to not commit them to source control to avoid
- * security risks. See https://github.com/josegonzalez/php-dotenv#general-security-information
- * for more information for recommended practices.
-*/
-// if (!env('APP_NAME') && file_exists(CONFIG . '.env')) {
-//     $dotenv = new \josegonzalez\Dotenv\Loader([CONFIG . '.env']);
-//     $dotenv->parse()
-//         ->putenv()
-//         ->toEnv()
-//         ->toServer();
-// }
 
 /*
- * Initializes default Config store and loads the main configuration file (app.php)
+ * 기본 설정 저장소(Config)를 초기화하고, 주요 설정 파일(app.php)을 로드합니다.
  *
- * CakePHP contains 2 configuration files after project creation:
- * - `config/app.php` for the default application configuration.
- * - `config/app_local.php` for environment specific configuration.
+ * CakePHP에서는 프로젝트 생성 후 두 개의 설정 파일이 제공됩니다:
+ * - `config/app.php`: 기본 애플리케이션 설정 파일.
+ * - `config/app_local.php`: 환경별 맞춤 설정을 위한 파일.
  */
 try {
     Configure::config('default', new PhpConfig());
@@ -87,15 +66,15 @@ try {
 }
 
 /*
- * Load an environment local configuration file to provide overrides to your configuration.
- * Notice: For security reasons app_local.php **should not** be included in your git repo.
+ * 환경별 로컬 설정 파일을 로드하여 기존 설정을 덮어씁니다.
+ * 참고: 보안상의 이유로 `app_local.php` 파일은 **Git 저장소에 포함하지 않아야 합니다**.
  */
 if (file_exists(CONFIG . 'app_local.php')) {
     Configure::load('app_local', 'default');
 }
 
 /*
- * When debug = true the metadata cache should only last for a short time.
+ * debug 값이 true일 때 메타데이터 캐시는 짧은 시간 동안만 유지됩니다.
  */
 if (Configure::read('debug')) {
     Configure::write('Cache._cake_model_.duration', '+2 minutes');
@@ -103,37 +82,39 @@ if (Configure::read('debug')) {
 }
 
 /*
- * Set the default server timezone. Using UTC makes time calculations / conversions easier.
- * Check https://php.net/manual/en/timezones.php for list of valid timezone strings.
+ * 기본 서버 시간대를 설정합니다. UTC를 사용하면 시간 계산 및 변환이 더 쉬워집니다.
+ * 사용할 수 있는 시간대 목록은 다음 링크에서 확인하세요:
+ * https://php.net/manual/en/timezones.php
  */
 date_default_timezone_set(Configure::read('App.defaultTimezone'));
 
 /*
- * Configure the mbstring extension to use the correct encoding.
+ * mbstring 확장을 올바른 인코딩 방식으로 설정합니다.
+ * (mbstring : PHP의 멀티바이트 문자열 처리 확장 기능)
  */
 mb_internal_encoding(Configure::read('App.encoding'));
 
 /*
- * Set the default locale. This controls how dates, number and currency is
- * formatted and sets the default language to use for translations.
+ * 기본 로케일을 설정합니다. 날짜, 숫자, 통화 형식을 제어하며,
+ * 기본 번역 언어도 여기에서 지정됩니다.
  */
 ini_set('intl.default_locale', Configure::read('App.defaultLocale'));
 
 /*
- * Register application error and exception handlers.
+ * 애플리케이션의 오류 및 예외 처리기를 등록합니다.
  */
 (new ErrorTrap(Configure::read('Error')))->register();
 (new ExceptionTrap(Configure::read('Error')))->register();
 
 /*
- * CLI/Command specific configuration.
+ * CLI(명령줄) 환경에 대한 설정.
  */
 if (PHP_SAPI === 'cli') {
-    // Set the fullBaseUrl to allow URLs to be generated in commands.
-    // This is useful when sending email from commands.
+    // 명령에서 URL을 생성할 수 있도록 `fullBaseUrl`을 설정합니다.
+    // 이메일을 명령을 통해 보낼 때 유용합니다.
     // Configure::write('App.fullBaseUrl', php_uname('n'));
 
-    // Set logs to different files so they don't have permission conflicts.
+    // 로그를 별도의 파일로 저장하여 권한 충돌을 방지합니다.
     if (Configure::check('Log.debug')) {
         Configure::write('Log.debug.file', 'cli-debug');
     }
@@ -143,19 +124,20 @@ if (PHP_SAPI === 'cli') {
 }
 
 /*
- * Set the full base URL.
- * This URL is used as the base of all absolute links.
- * Can be very useful for CLI/Commandline applications.
+ * 전체 기본 URL 설정.
+ * 이 URL은 모든 절대 링크의 기본 URL로 사용됩니다.
+ * CLI(명령줄) 애플리케이션에서 유용합니다.
  */
 $fullBaseUrl = Configure::read('App.fullBaseUrl');
 if (!$fullBaseUrl) {
     /*
-     * When using proxies or load balancers, SSL/TLS connections might
-     * get terminated before reaching the server. If you trust the proxy,
-     * you can enable `$trustProxy` to rely on the `X-Forwarded-Proto`
-     * header to determine whether to generate URLs using `https`.
+     * 프록시 또는 로드 밸런서를 사용할 경우, SSL/TLS 연결이
+     * 서버에 도달하기 전에 종료될 수 있습니다. 프록시를 신뢰하는 경우,
+     * `$trustProxy`를 활성화하여 `X-Forwarded-Proto` 헤더를 기반으로
+     * `https`를 사용할지 결정할 수 있습니다.
      *
-     * See also https://book.cakephp.org/5/en/controllers/request-response.html#trusting-proxy-headers
+     * 자세한 내용은 다음 문서를 참조하세요:
+     * https://book.cakephp.org/5/en/controllers/request-response.html#trusting-proxy-headers
      */
     $trustProxy = false;
 
@@ -176,8 +158,8 @@ if ($fullBaseUrl) {
 unset($fullBaseUrl);
 
 /*
- * Apply the loaded configuration settings to their respective systems.
- * This will also remove the loaded config data from memory.
+ * 로드된 설정을 시스템에 적용합니다.
+ * 설정 데이터를 메모리에서 제거합니다.
  */
 Cache::setConfig(Configure::consume('Cache'));
 ConnectionManager::setConfig(Configure::consume('Datasources'));
@@ -187,9 +169,9 @@ Log::setConfig(Configure::consume('Log'));
 Security::setSalt(Configure::consume('Security.salt'));
 
 /*
- * Setup detectors for mobile and tablet.
- * If you don't use these checks you can safely remove this code
- * and the mobiledetect package from composer.json.
+ * 모바일 및 태블릿 감지 기능을 설정합니다.
+ * 만약 이 기능이 필요 없다면 이 코드를 삭제하고
+ * `composer.json`에서 `mobiledetect` 패키지를 제거해도 됩니다.
  */
 ServerRequest::addDetector('mobile', function ($request) {
     $detector = new \Detection\MobileDetect();
@@ -203,11 +185,12 @@ ServerRequest::addDetector('tablet', function ($request) {
 });
 
 /*
- * You can enable default locale format parsing by adding calls
- * to `useLocaleParser()`. This enables the automatic conversion of
- * locale specific date formats when processing request data. For details see
+ * `useLocaleParser()`를 호출하면 기본 locale 형식 파싱을 활성화할 수 있습니다.
+ * 이를 통해 요청 데이터를 처리할 때 locale별 날짜 형식을 자동으로 변환할 수 있습니다.
+ * 자세한 내용은 아래 링크에서 확인하세요:
  * @link https://book.cakephp.org/5/en/core-libraries/internationalization-and-localization.html#parsing-localized-datetime-data
  */
+
 // \Cake\Database\TypeFactory::build('time')->useLocaleParser();
 // \Cake\Database\TypeFactory::build('date')->useLocaleParser();
 // \Cake\Database\TypeFactory::build('datetime')->useLocaleParser();
@@ -218,16 +201,18 @@ ServerRequest::addDetector('tablet', function ($request) {
 // \Cake\Database\TypeFactory::build('timestamptimezone')->useLocaleParser();
 
 /*
- * Custom Inflector rules, can be set to correctly pluralize or singularize
- * table, model, controller names or whatever other string is passed to the
- * inflection functions.
+ * 사용자 정의 Inflector 규칙을 설정할 수 있습니다.
+ * 이를 통해 테이블, 모델, 컨트롤러 이름 또는 기타 문자열을 올바르게 단수형/복수형으로 변환할 수 있습니다.
  */
 // \Cake\Utility\Inflector::rules('plural', ['/^(inflect)or$/i' => '\1ables']);
 // \Cake\Utility\Inflector::rules('irregular', ['red' => 'redlings']);
 // \Cake\Utility\Inflector::rules('uninflected', ['dontinflectme']);
 
-// set a custom date and time format
-// see https://book.cakephp.org/5/en/core-libraries/time.html#setting-the-default-locale-and-format-string
-// and https://unicode-org.github.io/icu/userguide/format_parse/datetime/#datetime-format-syntax
+/*
+ * 사용자 정의 날짜 및 시간 형식을 설정합니다.
+ * 자세한 내용은 아래 문서에서 확인하세요:
+ * https://book.cakephp.org/5/en/core-libraries/time.html#setting-the-default-locale-and-format-string
+ * https://unicode-org.github.io/icu/userguide/format_parse/datetime/#datetime-format-syntax
+ */
 // \Cake\I18n\Date::setToStringFormat('dd.MM.yyyy');
 // \Cake\I18n\Time::setToStringFormat('dd.MM.yyyy HH:mm');

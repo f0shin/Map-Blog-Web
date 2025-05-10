@@ -5,9 +5,9 @@
  * CakePHP(tm) : Rapid Development Framework (https://cakephp.org)
  * Copyright (c) Cake Software Foundation, Inc. (https://cakefoundation.org)
  *
- * Licensed under The MIT License
- * For full copyright and license information, please see the LICENSE.txt
- * Redistributions of files must retain the above copyright notice.
+ * MIT 라이선스 하에 제공됩니다.
+ * 전체 저작권 및 라이선스 정보는 LICENSE.txt 파일에서 확인할 수 있습니다.
+ * 파일을 재배포할 경우 저작권 표시를 유지해야 합니다.
  *
  * @copyright     Copyright (c) Cake Software Foundation, Inc. (https://cakefoundation.org)
  * @link          https://cakephp.org CakePHP(tm) Project
@@ -15,7 +15,7 @@
  * @license       MIT License (https://opensource.org/licenses/mit-license.php)
  */
 
-// For built-in server
+// 내장 서버용 설정
 if (PHP_SAPI === 'cli-server') {
     $_SERVER['PHP_SELF'] = '/' . basename(__FILE__);
 
@@ -30,8 +30,8 @@ require dirname(__DIR__) . '/vendor/autoload.php';
 use App\Application;
 use Cake\Http\Server;
 
-// Bind your application to the server.
+// 애플리케이션을 서버에 바인딩
 $server = new Server(new Application(dirname(__DIR__) . '/config'));
 
-// Run the request/response through the application and emit the response.
+// 요청/응답을 애플리케이션을 통해 실행하고, 응답을 전송
 $server->emit($server->run());

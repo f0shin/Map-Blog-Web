@@ -1,29 +1,33 @@
+# 오래된 issue 및 PR(Pull Request) 자동 정리 설정 파일
+# 특정 기간 동안 활동이 없으면 "stale" 라벨을 추가하고, 추가 활동이 없으면 자동으로 닫음.
+
+
 name: Mark stale issues and pull requests
 
 on:
   schedule:
-  - cron: "0 0 * * *"
+  - cron: "0 0 * * *" # 매일 00:00에 실행
 
 permissions:
-  contents: read
+  contents: read # 저장소 내용을 읽을 수 있도록 설정
 
 jobs:
   stale:
 
     permissions:
-      issues: write  # for actions/stale to close stale issues
-      pull-requests: write  # for actions/stale to close stale PRs
-    runs-on: ubuntu-latest
+      issues: write  # (for actions/stale) 오래된 issue를 자동으로 닫기 위해 필요
+      pull-requests: write  # (for actions/stale) 오래된 PR을 자동으로 닫기 위해 필요
+    runs-on: ubuntu-latest # 최신 우분투 환경에서 실행
     
     steps:
     - uses: actions/stale@v9
       with:
-        repo-token: ${{ secrets.GITHUB_TOKEN }}
-        stale-issue-message: 'This issue is stale because it has been open for 120 days with no activity. Remove the `stale` label or comment or this will be closed in 15 days'
-        stale-pr-message: 'This pull request is stale because it has been open 30 days with no activity. Remove the `stale` label or comment on this issue, or it will be closed in 15 days'
-        stale-issue-label: 'stale'
-        stale-pr-label: 'stale'
-        days-before-stale: 120
-        days-before-close: 15
-        exempt-issue-labels: 'pinned'
-        exempt-pr-labels: 'pinned'
+        repo-token: ${{ secrets.GITHUB_TOKEN }} # GitHub 액세스 토큰 사용
+        stale-issue-message: '해당 issue는 120일 동안 활동이 없어서 정리 대상입니다. `stale` 라벨을 제거하거나 댓글을 남기지 않으면 15일 후에 자동으로 닫힙니다.'
+        stale-pr-message: '해당 Pull-Request은 30일 동안 활동이 없어서 정리 대상입니다. `stale` 라벨을 제거하거나 댓글을 남기지 않으면 15일 후에 자동으로 닫힙니다.'
+        stale-issue-label: 'stale' # 오래된 issue에 붙일 라벨
+        stale-pr-label: 'stale' # 오래된 PR에 붙일 라벨
+        days-before-stale: 120 # issue가 오래된 것으로 간주되는 기간 (일 기준)
+        days-before-close: 15 # 오래된 후 자동으로 닫히기까지의 기간 (일 기준)
+        exempt-issue-labels: 'pinned'  # `pinned` 라벨이 붙어 있는 issue는 제외
+        exempt-pr-labels: 'pinned' # `pinned` 라벨이 붙어 있는 PR은 제외
