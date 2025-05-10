@@ -32,7 +32,8 @@
 
 📄 프로젝트 문서는 아래 노션 링크에서 확인할 수 있습니다.  
 [프로젝트 문서 보기](https://your-notion-link.com)
-
+-->
 ## 빠른 시작
+
 - `composer install`로 패키지 설치
-- `bin/cake server`로 개발 서버 실행 -->
+- `bin/cake server`로 개발 서버 실행
