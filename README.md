@@ -14,9 +14,9 @@
 ## 기술 스택
 
 - **언어**: PHP
-- **프레임워크**: CakePHP 5.x
-- **웹 서버**: Nginx
-- **데이터베이스**: MySQL
+- **프레임워크**: CakePHP 5.2
+- **웹 서버**: Nginx or Cake 내장 서버
+- **데이터베이스**: MySQL or MariaDB
 - **패키지 관리**: Composer
 
 ## 주요 기능
