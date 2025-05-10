@@ -1,53 +1,38 @@
-# CakePHP Application Skeleton
+# Library-Management-Web
 
-![Build Status](https://github.com/cakephp/app/actions/workflows/ci.yml/badge.svg?branch=5.x)
-[![Total Downloads](https://img.shields.io/packagist/dt/cakephp/app.svg?style=flat-square)](https://packagist.org/packages/cakephp/app)
-[![PHPStan](https://img.shields.io/badge/PHPStan-level%208-brightgreen.svg?style=flat-square)](https://github.com/phpstan/phpstan)
+## 프로젝트 개요
+**Library-Management-Web**은 사용자가 도서 정보를 쉽게 관리하고, 대출 및 반납 기능을 이용할 수 있도록 제작된 **도서 관리 시스템**입니다.  
+본 프로젝트는 **CakePHP** 프레임워크를 활용하여 개발되었으며, **MySQL**을 통해 도서 및 회원 정보를 저장합니다.  
+또한, **Nginx** 웹 서버를 통해 배포되어 안정적인 운영이 가능하도록 구성되었습니다.  
 
-A skeleton for creating applications with [CakePHP](https://cakephp.org) 5.x.
+- **프로젝트명**: Library-Management-Web  
+- **개발 기간**: 2025년 5월 (1개월 목표)  
+- **개발 인원**: 1명
 
-The framework source code can be found here: [cakephp/cakephp](https://github.com/cakephp/cakephp).
 
-## Installation
 
-1. Download [Composer](https://getcomposer.org/doc/00-intro.md) or update `composer self-update`.
-2. Run `php composer.phar create-project --prefer-dist cakephp/app [app_name]`.
+## 기술 스택
 
-If Composer is installed globally, run
+- **언어**: PHP
+- **프레임워크**: CakePHP 5.x
+- **웹 서버**: Nginx
+- **데이터베이스**: MySQL
+- **패키지 관리**: Composer
 
-```bash
-composer create-project --prefer-dist cakephp/app
-```
+## 주요 기능
 
-In case you want to use a custom app dir name (e.g. `/myapp/`):
+- **도서 관리** (도서 등록, 수정, 삭제, 검색)
+- **회원 관리** (회원 가입, 로그인, 수정)
+- **대출/반납 시스템** (도서 대출 및 반납 기록 저장)
+- **관리자 기능** (회원 관리, 도서 관리, 대출 내역 조회)
+- **검색 및 필터링** (도서 제목, 저자, 장르별 검색)
 
-```bash
-composer create-project --prefer-dist cakephp/app myapp
-```
 
-You can now either use your machine's webserver to view the default home page, or start
-up the built-in webserver with:
+<!-- # Library-Management-Web
 
-```bash
-bin/cake server -p 8765
-```
+📄 프로젝트 문서는 아래 노션 링크에서 확인할 수 있습니다.  
+[프로젝트 문서 보기](https://your-notion-link.com)
 
-Then visit `http://localhost:8765` to see the welcome page.
-
-## Update
-
-Since this skeleton is a starting point for your application and various files
-would have been modified as per your needs, there isn't a way to provide
-automated upgrades, so you have to do any updates manually.
-
-## Configuration
-
-Read and edit the environment specific `config/app_local.php` and set up the
-`'Datasources'` and any other configuration relevant for your application.
-Other environment agnostic settings can be changed in `config/app.php`.
-
-## Layout
-
-The app skeleton uses [Milligram](https://milligram.io/) (v1.3) minimalist CSS
-framework by default. You can, however, replace it with any other library or
-custom styles.
+## 빠른 시작
+- `composer install`로 패키지 설치
+- `bin/cake server`로 개발 서버 실행 -->
