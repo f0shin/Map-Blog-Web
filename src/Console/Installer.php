@@ -20,7 +20,9 @@ if (!defined('STDIN')) {
     define('STDIN', fopen('php://stdin', 'r'));
 }
 
-use Cake\Codeception\Console\Installer as CodeceptionInstaller;
+use PHPUnit\Runner\Version as PHPUnitVersion; // PHPUnit의 버전 정보 확인 가능
+
+// use Cake\Codeception\Console\Installer as CodeceptionInstaller;
 use Cake\Utility\Security;
 use Composer\IO\IOInterface;
 use Composer\Script\Event;
@@ -64,13 +66,16 @@ class Installer
 
         static::createAppLocalConfig($rootDir, $io);
         static::createWritableDirectories($rootDir, $io);
-
         static::setFolderPermissions($rootDir, $io);
         static::setSecuritySalt($rootDir, $io);
 
-        if (class_exists(CodeceptionInstaller::class)) {
-            CodeceptionInstaller::customizeCodeceptionBinary($event);
-        }
+        // Codeception 설치 관련 부분 제거
+        // if (class_exists(CodeceptionInstaller::class)) {
+        //     CodeceptionInstaller::customizeCodeceptionBinary($event);
+        // }
+
+        // PHPUnit 버전 확인 (테스트 환경 설정 시 유용)
+        $io->write('PHPUnit Version: ' . PHPUnitVersion::id());
     }
 
     /**
