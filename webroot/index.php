@@ -15,23 +15,27 @@
  * @license       MIT License (https://opensource.org/licenses/mit-license.php)
  */
 
-// 내장 서버용 설정
-if (PHP_SAPI === 'cli-server') {
-    $_SERVER['PHP_SELF'] = '/' . basename(__FILE__);
+// // 내장 서버용 설정
+// if (PHP_SAPI === 'cli-server') {
+//     $_SERVER['PHP_SELF'] = '/' . basename(__FILE__);
 
-    $url = parse_url(urldecode($_SERVER['REQUEST_URI']));
-    $file = __DIR__ . $url['path'];
-    if (!str_contains($url['path'], '..') && str_contains($url['path'], '.') && is_file($file)) {
-        return false;
-    }
-}
-require dirname(__DIR__) . '/vendor/autoload.php';
+//     $url = parse_url(urldecode($_SERVER['REQUEST_URI']));
+//     $file = __DIR__ . $url['path'];
+//     if (!str_contains($url['path'], '..') && str_contains($url['path'], '.') && is_file($file)) {
+//         return false;
+//     }
+// }
+// require dirname(__DIR__) . '/vendor/autoload.php';
 
-use App\Application;
-use Cake\Http\Server;
+// use App\Application;
+// use Cake\Http\Server;
 
-// 애플리케이션을 서버에 바인딩
-$server = new Server(new Application(dirname(__DIR__) . '/config'));
+// // 애플리케이션을 서버에 바인딩
+// $server = new Server(new Application(dirname(__DIR__) . '/config'));
 
-// 요청/응답을 애플리케이션을 통해 실행하고, 응답을 전송
-$server->emit($server->run());
+// // 요청/응답을 애플리케이션을 통해 실행하고, 응답을 전송
+// $server->emit($server->run());
+
+
+echo "Hello, World!";
+?>
