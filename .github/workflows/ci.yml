@@ -34,7 +34,7 @@ jobs:
             composer-options: '--ignore-platform-req=php' # PHP 버전 요구사항 무시
 
     steps:
-    - uses: actions/checkout@v4 # 저장소 체크아웃
+    - uses: actions/checkout@v5 # 저장소 체크아웃
 
     - name: Setup PHP
       uses: shivammathur/setup-php@v2
@@ -63,7 +63,7 @@ jobs:
     runs-on: ubuntu-22.04
 
     steps:
-    - uses: actions/checkout@v4 # 저장소 체크아웃
+    - uses: actions/checkout@v5 # 저장소 체크아웃
 
     - name: Setup PHP
       uses: shivammathur/setup-php@v2
