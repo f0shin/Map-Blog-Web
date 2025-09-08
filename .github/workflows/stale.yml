@@ -20,7 +20,7 @@ jobs:
     runs-on: ubuntu-latest # 최신 우분투 환경에서 실행
     
     steps:
-    - uses: actions/stale@v9
+    - uses: actions/stale@v10
       with:
         repo-token: ${{ secrets.GITHUB_TOKEN }} # GitHub 액세스 토큰 사용
         stale-issue-message: '해당 issue는 120일 동안 활동이 없어서 정리 대상입니다. `stale` 라벨을 제거하거나 댓글을 남기지 않으면 15일 후에 자동으로 닫힙니다.'
